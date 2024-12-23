@@ -1,0 +1,8 @@
+click
+coloredlogs
+python-binexport
+rpyc
+PyYAML
+plumbum
+idascript
+tqdm
