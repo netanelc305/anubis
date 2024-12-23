@@ -1,0 +1,36 @@
+rg:
+  patterns:
+    - "xpc_connection_create_mach_service"
+
+plist:
+  # Extract LaunchDaemons names.
+  - file: "System/Library/xpc/launchd.plist"
+    yq_query: ".LaunchDaemons.*.Label"
+
+class-dump:
+  # Extract DVT instruments
+  - path: '/System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/DVTInstrumentsFoundation'
+    pattern: "@protocol\\s+\\w+\\s+<DTXAllowedRPC>[\\s\\S]*?@required[\\s\\S]*?(-\\[[^\\]]+\\])"
+
+strings:
+  - path: 'usr/libexec/lockdownd'
+    pattern: "com.apple.*"
+
+binexport:
+  paths:
+    - "sbin/launchd"
+
+regs-tracker:
+  # Try to extract mach services name.
+  - func_pattern: 'bootstrap_check_in'
+    registers: [ 'x1' ]
+
+
+nm:
+  - path: 'sbin/launchd'
+    pattern: "U _posix.*"
+
+section:
+  - path: 'usr/libexec/lockdownd'
+    segment: '__TEXT'
+    section: "__services"
