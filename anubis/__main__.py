@@ -11,6 +11,7 @@ import yaml
 from anubis.collectors.binexport import BinExportCollector
 from anubis.collectors.class_dump import ClassDumpCollector
 from anubis.collectors.nm import NmCollector
+from anubis.collectors.objc_protocol_selectors import ObjcProtocolSelectors
 from anubis.collectors.plist import PlistCollector
 from anubis.collectors.regs_tracker import RegsTrackerCollector
 from anubis.collectors.rg import RgCollector
@@ -28,7 +29,7 @@ logger = logging.getLogger('anubis')
 TASK_TIMEOUT = 20
 COLLECTORS = {'rg': RgCollector, 'binexport': BinExportCollector, 'plist': PlistCollector,
               'class-dump': ClassDumpCollector, 'strings': StringsCollector, 'regs-tracker': RegsTrackerCollector,
-              'nm': NmCollector, 'section': SectionCollector}
+              'nm': NmCollector, 'section': SectionCollector, 'objc-protocol-selectors': ObjcProtocolSelectors}
 
 
 async def collect_task(input_path: Path, output_path: Path, rules: dict, whitelist: Optional[set] = None,

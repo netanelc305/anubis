@@ -11,6 +11,7 @@ analysis.
 
 - **Regex-Based File Search** – Locate patterns in files using `ripgrep`.
 - **Class Dump Extraction** – Extract Objective-C class information from Mach-O binaries.
+- **Protocol selectors Extraction** – Extract Objective-C selectors of given protocol.
 - **Plist Conversion** – Convert property list (`plist`) files to structured `YAML` format.
 - **Section Extraction** – Retrieve specific sections from Mach-O binaries.
 - **Symbol Extraction** – Extract function symbols from binaries using `nm`.

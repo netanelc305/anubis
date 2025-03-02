@@ -8,9 +8,13 @@ plist:
     yq_query: ".LaunchDaemons.*.Label"
 
 class-dump:
+  - path: "usr/libexec/remoted"
+    pattern: "-\\[RSDRemoteNCMDevice .+?]"
+
+objc-protocol-selectors:
   # Extract DVT instruments
   - path: '/System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/DVTInstrumentsFoundation'
-    pattern: "@protocol\\s+\\w+\\s+<DTXAllowedRPC>[\\s\\S]*?@required[\\s\\S]*?(-\\[[^\\]]+\\])"
+    protocol: "DTXAllowedRPC"
 
 strings:
   - path: 'usr/libexec/lockdownd'
