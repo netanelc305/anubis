@@ -7,10 +7,10 @@ plist:
   - file: "System/Library/xpc/launchd.plist"
     yq_query: ".LaunchDaemons.*.Label"
 
-class-dump:
+objc-protocol-selectors:
   # Extract DVT instruments
   - path: '/System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/DVTInstrumentsFoundation'
-    pattern: "@protocol\\s+\\w+\\s+<DTXAllowedRPC>[\\s\\S]*?@required[\\s\\S]*?(-\\[[^\\]]+\\])"
+    protocol: "DTXAllowedRPC"
 
 strings:
   - path: 'usr/libexec/lockdownd'
