@@ -16,7 +16,7 @@ from anubis.ida_rpyc.ida_client import DscIdb, MachoIdb
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-IDA_PATH = '/Applications/IDA Professional 9.0.app/Contents/MacOS/ida'
+IDA_PATH = '/Applications/IDA Professional 9.1.app/Contents/MacOS/ida'
 
 
 @dataclass(frozen=True)
