@@ -167,7 +167,7 @@ class RegisterTracker:
                     self.current_register = op2.reg
 
             # Handle ADRP/ADRL instructions.
-            elif instruction.mnemonic in ['ADRP', 'ADRL']:
+            elif instruction.mnemonic in ['ADR', 'ADRP', 'ADRL']:
                 # If the source is an immediate value,resolve and return.
                 if isinstance(op2, ImmediateOperand):
                     self.status = TrackerStatus.VALUE_FOUND
