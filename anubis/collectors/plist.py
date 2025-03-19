@@ -41,11 +41,11 @@ class PlistCollector:
             if yq_query:
                 logger.info(f'Running yq query: {yq_query}')
                 with tempfile.NamedTemporaryFile(mode='w+', delete=False) as fp:
-                    yaml.dump(data, fp, sort_keys=False, indent=4)
+                    yaml.dump(data, fp, sort_keys=True, indent=4)
                     data = YQ(yq_query, fp.name).splitlines()
 
             output_path = output_dir / f'{file_path.name}.yaml'
             with output_path.open('w') as output_file:
-                yaml.dump(data, output_file, sort_keys=False, indent=4)
+                yaml.dump(data, output_file, sort_keys=True, indent=4)
 
             logger.info(f'Converted plist to YAML: {output_path}')
