@@ -12,7 +12,7 @@ from plumbum import local
 IPSW = local['/opt/homebrew/bin/ipsw']
 DSC_PATH = Path('System/Cryptexes/OS/System/Library/Caches/com.apple.dyld/dyld_shared_cache_arm64e')
 EXTENSIONS_BLACKLIST = ('.i64', '.dyldlinkedit', '.symbols', '.BinExport', '.id0')
-DYLD_SHARED_CACHE_PATTERN = re.compile(r'^dyld_shared_cache_arm64e\..+$')
+DYLD_SHARED_CACHE_PATTERN = re.compile(r'^dyld_shared_cache_arm64e(\..+)?$')
 MAX_DEPTH = 5
 RG_PATH = '/opt/homebrew/bin/rg'
 YAML_UNDEFINED_TAG = 'tag:yaml.org,2002:str'

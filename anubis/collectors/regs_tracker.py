@@ -61,8 +61,8 @@ def reg_tracker_worker(task: Union[RegsTrackerTaskDsc, RegsTrackerTaskDsc]):
                 results[rule.function] = idb.track_function_registers(rule.function, rule.registers)
         return task.file_path, results
     except Exception as e:
-        logger.error(f'Error in function {task.file_path}: {e}\n{traceback.format_exc()}')
-        return task.file_path, None
+        logger.error(f'Error for task {task} traceback: {e}\n{traceback.format_exc()}')
+        raise
 
 
 @dataclass
