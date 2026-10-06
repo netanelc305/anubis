@@ -10,7 +10,7 @@ from anubis.common import EnhancedDict
 
 logger = logging.getLogger(__name__)
 
-STRINGS = local['strings']
+STRINGS = local['strings']['-']
 
 
 @dataclass
